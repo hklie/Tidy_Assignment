@@ -50,14 +50,14 @@ tidyDataSet <- cbind(s, y, x)
 # 5. Creating a 2nd independent tidy data set with averages of each variable for each activity and each subject
 #
 x <- tidyDataSet[, 3:dim(tidyDataSet)[2]] 
-tidyDataAVGSet <- aggregate(x,list(tidyDataSet$Subject, tidyDataSet$Activity), mean)
+tidyAverageDataSet <- aggregate(x,list(tidyDataSet$Subject, tidyDataSet$Activity), mean)
 #
 # Activity and Subject name of columns 
 #
-names(tidyDataAVGSet)[1] <- "Subject"
-names(tidyDataAVGSet)[2] <- "Activity"# Created csv (tidy data set) in diretory
+names(tidyAverageDataSet)[1] <- "Subject"
+names(tidyAverageDataSet)[2] <- "Activity"# Created csv (tidy data set) in diretory
 #
 # Created tidy datasets
 #
-write.table(tidyDataSet, file='./UCI HAR Dataset/tidy_DataFile.txt')
-write.table(tidyDataAVGSet, file='./UCI HAR Dataset/tidy_Average_DataFile.txt')
+# write.table(tidyDataSet, file='./UCI HAR Dataset/tidy_DataFile.txt')
+write.table(tidyAverageDataSet, file='./UCI HAR Dataset/tidy_Average_DataFile.txt')
